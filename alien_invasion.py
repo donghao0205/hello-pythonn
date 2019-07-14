@@ -1,7 +1,8 @@
-import sys
 import pygame
 from settings import Setting
 from ship import Ship
+import game_functions as gf
+
 
 def run_game():
 
@@ -14,12 +15,11 @@ def run_game():
     ship = Ship(screen)
     pygame.display.set_caption("demo")
     while True:
-        """监视鼠标和键盘"""
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
+        gf.check_event()
         screen.fill(settings.bg_color)
         ship.blitme()
+
+        # 让最近绘制屏幕可见
         pygame.display.flip()
 
 
