@@ -18,5 +18,5 @@ def run_game():
         gf.check_event()
         gf.update_screen(settings,screen,ship)
 
-
+# 启动游戏
 run_game()
