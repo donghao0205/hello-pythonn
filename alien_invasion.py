@@ -1,6 +1,7 @@
 import sys
 import pygame
 from settings import Setting
+from ship import Ship
 
 def run_game():
 
@@ -10,6 +11,7 @@ def run_game():
     settings = Setting()
     # 设置屏幕
     screen = pygame.display.set_mode((settings.width,settings.height))
+    ship = Ship(screen)
     pygame.display.set_caption("demo")
     while True:
         """监视鼠标和键盘"""
@@ -17,6 +19,7 @@ def run_game():
             if event.type == pygame.QUIT:
                 sys.exit()
         screen.fill(settings.bg_color)
+        ship.blitme()
         pygame.display.flip()
 
 
