@@ -9,14 +9,15 @@ def run_game():
     # 初始化屏幕对象
     pygame.init()
     # 创建一个设置类实例
-    settings = Setting()
+    ai_settings = Setting()
     # 设置屏幕
-    screen = pygame.display.set_mode((settings.width,settings.height))
-    ship = Ship(screen)
+    screen = pygame.display.set_mode((ai_settings.width,ai_settings.height))
+    ship = Ship(ai_settings,screen)
     pygame.display.set_caption("demo")
     while True:
-        gf.check_event()
-        gf.update_screen(settings,screen,ship)
+        gf.check_event(ship)
+        ship.update()
+        gf.update_screen(ai_settings,screen,ship)
 
 # 启动游戏
 run_game()
